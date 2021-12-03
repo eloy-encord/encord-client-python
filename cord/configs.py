@@ -24,9 +24,10 @@ from cryptography.hazmat.primitives.serialization import load_ssh_private_key, E
 
 import cord.exceptions
 
-CORD_ENDPOINT = 'https://api.cord.tech/public'
-CORD_USER_ENDPOINT = 'https://api.cord.tech/public/user'
-WEBSOCKET_ENDPOINT = 'wss://message-api.cord.tech/websocket'
+CORD_ENDPOINT = 'https://infra.api.cord.tech/public'
+CORD_USER_ENDPOINT = 'https://infra.api.cord.tech/public/user'
+WEBSOCKET_ENDPOINT = 'wss://infra.message-api.cord.tech/websocket'
+
 
 _CORD_PROJECT_ID = 'CORD_PROJECT_ID'
 _CORD_DATASET_ID = 'CORD_DATASET_ID'
