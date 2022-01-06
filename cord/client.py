@@ -51,7 +51,8 @@ from cord.http.utils import upload_to_signed_url_list
 from cord.orm.api_key import ApiKeyMeta
 from cord.orm.cloud_integration import CloudIntegration
 from cord.orm.dataset import (
-    Dataset, Image, ImageGroup, SignedImagesURL, SignedVideoURL, Video, DatasetData, ReEncodeVideoTask, ImageGroupOCR
+    Dataset, Image, ImageGroup, SignedImagesURL, SignedVideoURL, Video, DatasetData, ReEncodeVideoTask, ImageGroupOCR,
+    VideoOperations
 )
 from cord.orm.label_log import LabelLog
 from cord.orm.label_row import LabelRow
@@ -215,6 +216,19 @@ class CordClientDataset(CordClient):
             raise cord.exceptions.CordException(
                 message='{} does not point to a file.'.format(file_path)
             )
+
+    def delete_video(self, data_hash: str):
+        """
+        Create a video in Cord storage.
+
+        Args:
+            self: Cord client object.
+            data_hash: the hash of the video you'd like to delete
+        """
+        self._querier.basic_delete(
+            VideoOperations,
+            uid=data_hash
+        )
 
     def create_image_group(self, file_paths: typing.Iterable[str], max_workers: Optional[int] = None):
         """

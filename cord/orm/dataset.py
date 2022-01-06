@@ -147,6 +147,10 @@ class ImageGroup(base_orm.BaseORM):
     }
 
 
+class VideoOperations:
+    pass
+
+
 class Image(base_orm.BaseORM):
     """ An image object with supporting information. """
     DB_FIELDS = OrderedDict([
